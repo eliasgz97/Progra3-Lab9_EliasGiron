@@ -100,14 +100,14 @@ int main()
                     case 3:
                         for (int i = 0; i < personas.size(); i++)
                         {
-                            if (dynamic_cast<Cliente*>(personas[i])
+                            if (dynamic_cast<Cliente*>(personas[i]))
                             {
                                 cout << "Clientes" << endl;
                                 cout << i + 1 << ". ";
                                 cout << personas[i]->toString();
                                 cout << personas[i]->admganancias();
                                 cout << endl;
-                            }else if(dynamic_cast<Repartidor*>(personas[i]){
+                            }else if(dynamic_cast<Repartidor*>(personas[i])){
                                 cout << "Repartidores" << endl;
                                 cout << i + 1 << ". ";
                                 cout << personas[i]->toString();
@@ -198,7 +198,10 @@ int main()
                         temp->setordenes(ordenesempleado);
                     }
                 }
-                ordenes.push_back(new Orden(personas[eliminar], negocios[posnegocio], personas[repartidor], tipo_orden, estado_orden, productos[pos_producto]));
+                Cliente* clientetemp = dynamic_cast<Cliente* >(personas[eliminar]);
+                Repartidor* repartidortemp = dynamic_cast<Repartidor*>(personas[repartidor]);
+                
+                ordenes.push_back(new Ordenes(clientetemp, negocios[posnegocio], repartidortemp, tipo_orden, estado_orden, productos[pos_producto]));
             }
             break;
         }
