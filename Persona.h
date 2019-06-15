@@ -6,7 +6,7 @@ using std::string;
 
 class Persona
 {
-private:
+protected:
     string nombre;
     string identidad;
     int edad;
